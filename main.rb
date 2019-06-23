@@ -1,7 +1,6 @@
 require "./test.rb"
 require "./input_output.rb"
 
-
 name = ARGV[0]
 
 current_path = File.dirname(__FILE__)

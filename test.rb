@@ -1,5 +1,4 @@
 class Test
-
   def initialize(file_name1, file_name2)
     @score = 0
     @result = nil
@@ -38,15 +37,15 @@ class Test
   end
 
   def result
-    return @result
+    @result
   end
 
   def name
-    return @name
+    @name
   end
 
   def score
-    return @score
+    @score
   end
 end
 
