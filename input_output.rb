@@ -1,5 +1,4 @@
 class InputOutput
-
   def user_input
     @choice = nil
     until @choice == 1 || @choice == 2 || @choice == 3
@@ -30,11 +29,10 @@ class InputOutput
   end
 
   def output_questions(item)
-    return puts item
+    puts item
   end
 
   def choice
-    return @choice
+    @choice
   end
 end
-
