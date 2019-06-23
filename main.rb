@@ -1,5 +1,5 @@
-require "./test.rb"
-require "./input_output.rb"
+require_relative "test"
+require_relative "input_output"
 
 name = ARGV[0]
 

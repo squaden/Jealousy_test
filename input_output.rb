@@ -36,4 +36,3 @@ class InputOutput
     @choice
   end
 end
-
