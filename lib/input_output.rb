@@ -1,4 +1,21 @@
 class InputOutput
+  attr_reader :choice
+
+  def initialize(name)
+    @name = name
+    if @name == nil
+      puts "Приветствуем вас Инкогнито!"
+    else
+      puts "Приветствуем вас, #{@name}!"
+    end
+
+    puts
+    puts "Тест поможет определить ваш уровень коммуникабельности."
+    puts
+    puts "Для этого необходимо правдиво ответить на следующие вопросы."
+    puts
+  end
+
   def user_input
     @choice = nil
     until @choice == 1 || @choice == 2 || @choice == 3
@@ -30,9 +47,5 @@ class InputOutput
 
   def output_questions(item)
     puts item
-  end
-
-  def choice
-    @choice
   end
 end

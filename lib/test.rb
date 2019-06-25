@@ -1,4 +1,6 @@
 class Test
+  attr_reader :score, :result
+
   def initialize(file_name1, file_name2)
     @score = 0
     @result = nil
@@ -7,8 +9,8 @@ class Test
   end
 
   def next_questioins(inputoutput)
-    for item in @questions do
-      inputoutput.output_questions(item)
+    @questions.each do |question|
+      inputoutput.output_questions(question)
       inputoutput.user_input
       if inputoutput.choice == 1
         @score += 2
@@ -19,32 +21,20 @@ class Test
   end
 
   def counting
-    if (@score >= 30)
+    if @score >= 30
       @result = @results[0]
-    elsif (@score >= 25)
+    elsif @score >= 25
       @result = @results[1]
-    elsif (@score >= 19)
+    elsif @score >= 19
       @result = @results[2]
-    elsif (@score >= 14)
+    elsif @score >= 14
       @result = @results[3]
-    elsif (@score >= 9)
+    elsif @score >= 9
       @result = @results[4]
-    elsif (@score >= 4)
+    elsif @score >= 4
       @result = @results[5]
     else
       @result = @results[6]
     end
-  end
-
-  def result
-    @result
-  end
-
-  def name
-    @name
-  end
-
-  def score
-    @score
   end
 end
