@@ -1,22 +1,18 @@
 class Test
-  attr_reader :score, :result
+  attr_reader :result, :questions, :score
 
   def initialize(file_name1, file_name2)
     @score = 0
     @result = nil
-    @questions = File.readlines(file_name1, chomp: true)
-    @results = File.readlines(file_name2, chomp: true)
+    @questions = File.readlines(file_name1, encoding: "UTF-8", chomp: true)
+    @results = File.readlines(file_name2, encoding: "UTF-8", chomp: true)
   end
 
-  def next_questioins(inputoutput)
-    @questions.each do |question|
-      inputoutput.output_questions(question)
-      inputoutput.user_input
-      if inputoutput.choice == 1
-        @score += 2
-      elsif inputoutput.choice == 3
-        @score += 1
-      end
+  def iteration(choice)
+    if choice == 1
+      @score += 2
+    elsif choice == 3
+      @score += 1
     end
   end
 
