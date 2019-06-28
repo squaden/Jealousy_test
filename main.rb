@@ -8,7 +8,7 @@ name = ARGV[0]
 
 greeting = "Тест поможет определить ваш уровень коммуникабельности.\n" + \
             "Для этого необходимо правдиво ответить на следующие вопросы.\n"
-instruction = "Инструкция:" + \
+instruction = "Инструкции:" + \
               "\n" + \
               "За каждый ответ «да» начисляется 2 балла, за ответ «нет» — 0 " \
               "баллов, за ответ «иногда» — 1 балл."
@@ -25,10 +25,10 @@ puts
 
 test = Test.new(file_name1, file_name2)
 
-test.questions.each do |question|
-  puts question
-  choice = nil
-  until choice == 1 || choice == 2 || choice == 3
+until test.finished?
+  puts test.current_question
+  user_choice = nil
+  until test.answer_accepted?(user_choice)
     puts
     puts "Введите с помощью цифр один из вариантов ответа:"
     puts
@@ -38,9 +38,7 @@ test.questions.each do |question|
     puts
     puts "3 - иногда"
     puts
-    choice = STDIN.gets.to_i
-    puts
-    test.iteration(choice)
+    user_choice = STDIN.gets.to_i
   end
 end
 

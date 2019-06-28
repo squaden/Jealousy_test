@@ -1,17 +1,29 @@
 class Test
-  attr_reader :result, :questions, :score
+  attr_reader :result, :score
 
   def initialize(file_name1, file_name2)
     @score = 0
     @result = nil
+    @current_question = 0
     @questions = File.readlines(file_name1, encoding: "UTF-8", chomp: true)
     @results = File.readlines(file_name2, encoding: "UTF-8", chomp: true)
   end
 
-  def iteration(choice)
-    if choice == 1
+  def finished?
+    @current_question >= @questions.size
+  end
+
+  def current_question
+    @current_question += 1
+    @questions[@current_question - 1]
+  end
+
+  def answer_accepted?(user_choice)
+    if user_choice == 1
       @score += 2
-    elsif choice == 3
+    elsif user_choice == 2
+      @score += 0
+    elsif user_choice == 3
       @score += 1
     end
   end
